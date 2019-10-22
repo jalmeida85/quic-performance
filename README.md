@@ -53,11 +53,9 @@ and OKHttp.
 
 ## Setup
 
-You will need client and server machines to be able to run the project,
-preferably machines used only for testing purposes (the network emulator
+You will need two machines  to be able to run the project (client and server),
+preferably used only for testing purposes (the network emulator
 will apply its rules on a server machine network interface).
-
-## Build
 
 Build instructions [here](./BUILD.md)
 
