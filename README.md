@@ -17,7 +17,7 @@ From https://tools.ietf.org/html/draft-tsvwg-quic-protocol-02
 ~~~~~
 
 There is a growing number of QUIC implementations. The following link
-tracks known implementations of QUICC.
+tracks known implementations of QUIC.
 
 https://github.com/quicwg/base-drafts/wiki/Implementations
 
@@ -37,8 +37,10 @@ emulator is co-located with the server but outside the docker container.
 We use docker-compose to orchestrate the execution of both client and server.
 
 Before making it's requests to the server, the client sends a request to 
-the network emulator to apply network rules. After this, the client makes 
-HTTPS GET requests to the server.
+the network emulator to apply network rules. (The [network emulator](https://gitlab.com/codavel/network-emulator) 
+is based on  `tc` and included as a submodule of the project. )
+
+After this, the client makes HTTPS GET requests to the server.
 
 This flow is controlled by a python script (run_demo.py) that is executed 
 when the docker-compose is upped. The scripts allows for setting up the 
