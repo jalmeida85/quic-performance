@@ -59,9 +59,8 @@ will apply its rules on a server machine network interface).
 
 ## Build
 
-cd quic-performance
+Build instructions [here](./BUILD.md)
 
-export QUIC_PERF_ROOT=$(pwd)
 
 ## Run QUIC benchmark
 
