@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  quic-picoquic-server-newreno:
+    build:
+      context: ../../../../containers/picoquic
+      dockerfile: ./Dockerfile
+    network_mode: "host"
+    privileged: true
+    env_file:
+      - .env
+    command: >
+      bash -c "cd picoquic/picoquic/ && sudo ./picoquic-demo-server -p ${PICOQUIC_PORT} -c /quic/certificate.pem -k /quic/key.pem -b newreno"
+    restart: always

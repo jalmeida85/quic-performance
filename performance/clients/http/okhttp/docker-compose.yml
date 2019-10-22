@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  okhttp-client:
+    build:
+      context: ../../../../containers/http-clients/
+      dockerfile: ./Dockerfile
+    network_mode: "host"
+    volumes:
+      - ./run_demo.py:/quic/run_demo.py
+      - ../../../../config/config.json:/quic/config.json
+    command: >
+      bash -c "python3 -u run_demo.py config.json"

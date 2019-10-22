@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  mvfst-server:
+    build:
+      context: ../../../../containers/mvfst/
+      dockerfile: ./Dockerfile
+    network_mode: "host"
+    privileged: true
+    env_file:
+      - .env
+    command: >
+      bash -c "cd mvfst/proxygen/proxygen/_build/proxygen/httpserver && sudo ./hq -mode=server -host=${SERVER_IP} -port=${MVFST_PORT} -congestion=newreno -v 1 -cert=/quic/certificate.pem -key=/quic/key.pem -logdir=./"
+    restart: always

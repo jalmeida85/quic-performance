@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  http-server:
+    build:
+      context: ../../../../containers/ookla-server/
+      dockerfile: ./Dockerfile
+    network_mode: "host"
+    privileged: true
+    command: >
+      bash -c "./OoklaServer"
+    restart: always

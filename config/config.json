@@ -1,0 +1,38 @@
+{
+  "server_ip": "<ip>",
+  "iface": "<iface>",
+  "server_name": "<sni>",
+  "ngtcp2_port": 6666,
+  "picoquic_port": 6667,
+  "mvfst_port": 6668,
+  "http_port": 8080,
+  "latency": [
+    5.0,
+    10.0,
+    20.0,
+    30.0,
+    50.0
+  ],
+  "loss_percentage": [
+    0.1,
+    0.2,
+    0.5
+  ],
+  "nruns": 25,
+  "requests": {
+    "bytes": [
+      "245388",
+      "505544",
+      "1118012",
+      "4468241",
+      "17816816"
+    ],
+    "files": [
+      "random350x350.jpg",
+      "random500x500.jpg",
+      "random750x750.jpg",
+      "random1500x1500.jpg",
+      "random3000x3000.jpg"
+    ]
+  }
+}

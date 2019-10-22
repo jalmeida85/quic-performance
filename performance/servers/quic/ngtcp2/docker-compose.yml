@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  quic-ngtcp2-server:
+    build:
+      context: ../../../../containers/ngtcp2/
+      dockerfile: ./Dockerfile
+    network_mode: "host"
+    privileged: true
+    env_file:
+      - .env
+    command: >
+      bash -c "cd ngtcp2/ngtcp2/examples/ && sudo ./server -q 0.0.0.0 ${NGTCP2_PORT} /quic/key.pem /quic/certificate.pem"
+    restart: always

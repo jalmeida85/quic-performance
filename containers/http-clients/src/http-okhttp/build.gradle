@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+repositories {
+   jcenter()
+   mavenCentral()
+}
+
+configurations {
+    extraLibs
+}
+
+dependencies {
+    implementation("com.squareup.okhttp3:okhttp:3.12.1")
+    extraLibs group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.12.1'
+    configurations.compile.extendsFrom(configurations.extraLibs)
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.test.HttpClient'
+        )
+    }
+    from {
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

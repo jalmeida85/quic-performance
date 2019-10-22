@@ -1,0 +1,3 @@
+[submodule "network-emulator"]
+	path = network-emulator
+	url = https://gitlab.com/codavel/network-emulator.git
