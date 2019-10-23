@@ -64,7 +64,7 @@ for p in loss_percentage:
                     cmd = ["sudo", "./mvfst/proxygen/proxygen/_build/proxygen/httpserver/hq", "-lat=" + str(l),
                            "-plr=" + str(p), "-bytes=" + str(b), "-mode=client", "-host=" + str(server_ip),
                            "-port=" + str(port), "-congestion=newreno", "-path=/" + str(b), "-v", "1",
-                           "-early_data=true", "-psk_file=mvfst_psk", "-logdir=./"]
+                           "-early_data=true", "-psk_file=mvfst_psk", "-logdir=./", "-conn_flow_control=134217728", "-stream_flow_control=33554432"]
 
                     return_code = subprocess.call(cmd, timeout=300)
                 except Exception as e:

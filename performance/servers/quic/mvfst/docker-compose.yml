@@ -11,5 +11,5 @@ services:
     env_file:
       - .env
     command: >
-      bash -c "cd mvfst/proxygen/proxygen/_build/proxygen/httpserver && sudo ./hq -mode=server -host=${SERVER_IP} -port=${MVFST_PORT} -congestion=newreno -v 1 -cert=/quic/certificate.pem -key=/quic/key.pem -logdir=./"
+      bash -c "cd mvfst/proxygen/proxygen/_build/proxygen/httpserver && sudo ./hq -mode=server -host=${SERVER_IP} -port=${MVFST_PORT} -congestion=newreno -v 1 -cert=/quic/certificate.pem -key=/quic/key.pem -logdir=./ -conn_flow_control=134217728 -stream_flow_control=33554432"
     restart: always
